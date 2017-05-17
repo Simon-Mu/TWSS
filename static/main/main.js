@@ -16,6 +16,19 @@ $(document).ready(function () {
     //
     // });
 
+    //左侧菜单动画
+    $('.unit_title').click(function () {
+        // 点击标题后 隐藏其他模块的子菜单 显示本模块的子菜单
+        $('.unit_options').slideUp('fast');
+        if($(this).next().css('display') === 'none'){
+            $(this).next().slideDown('fast');
+        }
 
+        // 隐藏其他模块的主界面 显示本模块的主界面
+        $('.main_interface').hide();
+        var title_name = $(this).attr('id');
+        var content_name = title_name.replace('_title','_content');
+        $('.'+content_name).show();
+    });
 
 });

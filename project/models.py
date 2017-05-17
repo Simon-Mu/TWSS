@@ -22,17 +22,13 @@ class User(models.Model):
     )
     sex = models.CharField(max_length=1, choices=SEX_CHOICES, default='u')
     # 身份
-    STATUS_CHOICES = (
-        ('0', '教师'),
-        ('1', '系负责人'),
-        ('2', '教务员'),
-        ('3', '系统管理员')
-    )
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='教师')
+    status_teacher = models.BooleanField(default=False)
+    status_dean = models.BooleanField(default=False)
+    status_director = models.BooleanField(default=False)
+    status_admin = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'User'
 
-    def  __unicode__(self):
+    def __unicode__(self):
         return self.username + ' ' + self.name
-

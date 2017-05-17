@@ -1,53 +1,18 @@
 {% extends "main/main.html" %}
 {% block content_left %}
 
-<div class="left_unit">
-    <div class="unit_title" id="title_1">教师信息管理</div>
-    <div class="unit_options" id="options_1">
-        <div class="unit_detail">录入</div>
-        <div class="unit_detail">查询</div>
-        <div class="unit_detail">修改</div>
-        <div class="unit_detail">申报</div>
-    </div>
-</div>
+    {% include "main/modules/teacher/menu.html" %}
 
-<div class="left_unit">
-    <div class="unit_title" id="title_2">学年信息管理</div>
-    <div class="unit_options" id="options_2">
-        <div class="unit_detail">录入</div>
-        <div class="unit_detail">查询</div>
-        <div class="unit_detail">修改</div>
-        <div class="unit_detail">申报</div>
-    </div>
-</div>
+    {% include "main/modules/semester/menu.html" %}
 
-<div class="left_unit">
-    <div class="unit_title" id="title_3">专业信息管理</div>
-    <div class="unit_options" id="options_3">
-        <div class="unit_detail">录入</div>
-        <div class="unit_detail">查询</div>
-        <div class="unit_detail">修改</div>
-        <div class="unit_detail">申报</div>
-    </div>
-</div>
+    {% include "main/modules/subject/menu.html" %}
 
-<div class="left_unit">
-    <div class="unit_title" id="title_4">班级信息管理</div>
-    <div class="unit_options" id="options_4">
-        <div class="unit_detail">录入</div>
-        <div class="unit_detail">查询</div>
-        <div class="unit_detail">修改</div>
-        <div class="unit_detail">申报</div>
-    </div>
-</div>
+    {% include "main/modules/class/menu.html" %}
 
-<div class="left_unit">
-    <div class="unit_title" id="title_5">课程信息管理</div>
-    <div class="unit_options" id="options_5">
-        <div class="unit_detail">录入</div>
-        <div class="unit_detail">查询</div>
-        <div class="unit_detail">修改</div>
-        <div class="unit_detail">申报</div>
-    </div>
-</div>
+    {% include "main/modules/course/menu.html" %}
+
+{% endblock %}
+
+{% block content_right %}
+
 {% endblock %}

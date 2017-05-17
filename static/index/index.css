@@ -98,6 +98,12 @@
     border-radius: 5px;
     cursor: pointer;
     float: right;
+    /*禁用双击选择文字 要不然这验证码就没用了*/
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+
 }
 
 #warnings{
@@ -108,7 +114,7 @@
     float: right;
 }
 
-.right button{
+#login{
     width: 60px;
     margin: 10px 20px;
     font-size: 18px;
@@ -117,4 +123,8 @@
     border-radius: 5px;
     cursor: pointer;
     float: right;
+}
+
+#login:active{
+    color: #666666;
 }
