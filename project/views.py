@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-
 # Create your views here.
 
+from django.shortcuts import render
+from django.http import HttpResponse
+from wsgiref.util import FileWrapper
 
-# 测试
-PROJECT_TEST = True
+
+# 测试开关
+PROJECT_TEST = False
+
 
 def index(request):
     return render(request, 'index/index.html', locals())
@@ -18,16 +21,25 @@ def login(request):
 
     # 测试
     if PROJECT_TEST:
-        return render(request,'main/teacher.html')
+        class _user:
+            name = '教师1'
+            sex = 'm'
+            username = '20164730001'
 
+        status_post = '教师'
+        user = _user()
+        return render(request,'main/teacher.html',locals())
+
+
+    # 如果表单为POST提交
     if request.POST:
-        from models import User
-
+        # 接收数据
         username_post = request.POST['username']
         password_post = request.POST['password']
         status_post = request.POST['status']
 
         # 检查是否存在此用户
+        from models import User
         user_list = User.objects.filter(username=username_post)
         '''
         用filter而不是get的原因：
@@ -54,11 +66,7 @@ def login(request):
                     if status_post == '系统管理员':
                         if user.status_admin == True:
                             return render(request, 'main/admin.html')
+                # 防止意外
+                return render(request, 'index/loginfailed.html')
 
     return render(request, 'index/loginfailed.html')
-
-
-
-
-
-

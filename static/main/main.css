@@ -104,9 +104,9 @@ body{
 
 .unit_detail{
     width: 200px;
-    height: 40px;
+    height: 45px;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 45px;
     text-align: center;
     color: #333333;
     background-color: rgba(255,255,255,0.3);
@@ -129,5 +129,24 @@ body{
 }
 
 .main_interface{
-    /*display: none;*/
+    display: none;
+}
+
+.content_button{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.3);
+    cursor: pointer;
+    float: left;
+}
+
+.content_button:hover{
+    background-color: rgba(255,255,255,0.6);
+}
+
+#request_form{
+    display: none;
 }

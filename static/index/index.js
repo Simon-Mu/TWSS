@@ -49,6 +49,14 @@ $(document).ready(function () {
 
     //点击登录
     $('#login').click(function () {
+
+        // 测试开关
+        var PROJECT_TEST = false;
+        if(PROJECT_TEST){
+            $('#login_form').submit();
+        }
+
+
         // 检查账户名密码是否为空
         if(username.val() === ''){
             warnings.text('用户名不能为空');

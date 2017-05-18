@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block base_content %}
+
 <div class="top_bar">
     <div class="top_bar_center">
         <img id="logo_zzdx" src={% static "base/logo_zzdx.png" %}>
@@ -15,6 +16,7 @@
     </div>
     <!--<div id="logout">[退出]</div>-->
 </div>
+
 <div class="content">
     <div class="content_left">
         {% block content_left %}
@@ -31,4 +33,9 @@
         {% block content_right %}{% endblock %}
     </div>
 </div>
+
+<form id="request_form" method="get" autocomplete="off">
+    <input name="unique_code" value={{ user.password }}>
+    <input id="requestfor" name="requestfor" value="">
+</form>
 {% endblock %}

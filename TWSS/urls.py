@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from project.views import *
+from project.data_export import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     url(r'^index$', index),
-    url(r'^main$', login)
+    url(r'^main$', login),
 
+    url(r'^to_excel$', to_excel),
 ]
