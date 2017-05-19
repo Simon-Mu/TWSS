@@ -16,6 +16,12 @@ $(document).ready(function () {
     //
     // });
 
+    // 禁用左侧菜单的双击选择文字，影响使用体验
+    $('.left_unit').addClass('no_select');
+    // 禁用全局按钮的双击选择文字
+    $('.content_button').addClass('no_select');
+
+
     //左侧菜单动画
     $('.unit_title').click(function () {
         // 点击标题后 隐藏其他模块的子菜单 显示本模块的子菜单

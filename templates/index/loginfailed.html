@@ -3,6 +3,7 @@
 
 {% block headmeta %}
     <link rel="stylesheet" href={% static "base/loginfailed.css" %}>
+    <script src={% static "index/loginfailed.js" %}></script>
 {% endblock %}
 
 {% block base_content %}
@@ -17,7 +18,10 @@
     </div>
 
     <div class="content_right">
-        <a href="/"><div class="select_bar" id="firstbar">返回登录界面</div></a>
+        <a href="/">
+            <div class="select_bar" id="overbar"></div>
+            <div class="select_bar" id="firstbar">10秒后返回登录界面</div>
+        </a>
         <a href="/"><div class="select_bar">邮箱找回密码</div></a>
         <a href="/"><div class="select_bar" id="lastbar">联系管理员</div></a>
 {#TODO:#}

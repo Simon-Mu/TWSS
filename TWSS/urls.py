@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from project.utilities.data_export import download
+from project.utilities.data_upload import upload
 from project.views import *
-from project.data_export import *
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,5 +27,12 @@ urlpatterns = [
     url(r'^index$', index),
     url(r'^main$', login),
 
-    url(r'^to_excel$', to_excel),
+    url(r'^download$', download),
+    url(r'^upload$', upload),
 ]
+
+
+from django.conf import settings
+from django.views.static import serve
+if settings.DEBUG is False:
+    urlpatterns += (url(r'^static/(?P<path>.*)$', serve, { 'document_root': settings.STATIC_ROOT }), )

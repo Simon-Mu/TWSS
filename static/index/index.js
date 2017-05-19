@@ -7,6 +7,9 @@ $(document).ready(function () {
     var captcha = $('#captcha');
     var captcha_img = $('#captcha_img');
 
+    // 禁用双击选择文字
+    captcha_img.addClass('no_select');
+
     var captcha_generate;
     var dict = ['0','1','2','3','4','5','6','7','8','9',
         '0','1','2','3','4','5','6','7','8','9',
@@ -51,8 +54,10 @@ $(document).ready(function () {
     $('#login').click(function () {
 
         // 测试开关
+        // 跳过验证码
         var PROJECT_TEST = false;
         if(PROJECT_TEST){
+            password.val(hex_md5(password.val()));
             $('#login_form').submit();
         }
 
@@ -82,7 +87,6 @@ $(document).ready(function () {
         password.val(hex_md5(password.val()));
         // 提交
         $('#login_form').submit();
-
 
 
     });

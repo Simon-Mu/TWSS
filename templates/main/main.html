@@ -4,6 +4,7 @@
 {% block headmeta %}
     <link rel="stylesheet" href={% static "main/main.css" %}>
     <script src={% static "main/main.js" %}></script>
+    <script src={% static "library/jquery-form.js" %}></script>
 {% endblock %}
 
 {% block base_content %}
@@ -34,8 +35,12 @@
     </div>
 </div>
 
-<form id="request_form" method="get" autocomplete="off">
-    <input name="unique_code" value={{ user.password }}>
+<form id="request_form" method="POST" autocomplete="off">
+{% csrf_token %}
+    <input name="unique_code" value={{ unique_code }}>
+    <input name="username" value="{{ username_post }}">
+    <input name="status" value="{{ status_post }}">
     <input id="requestfor" name="requestfor" value="">
+    <input id="request_data" name="request_data" value="">
 </form>
 {% endblock %}

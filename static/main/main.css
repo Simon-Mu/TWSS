@@ -68,11 +68,6 @@ body{
     min-height: 50px;
     margin: 20px 0 0 0;
     float: right;
-    /*禁用双击选择文字 影响用户体验*/
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
 }
 
 .unit_title{

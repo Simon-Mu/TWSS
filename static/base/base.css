@@ -11,3 +11,11 @@ a,a:link,a:hover,a:visited {
     text-decoration: none;
     color: #333333;
 }
+
+.no_select{
+    /*禁用双击选择文字 影响用户体验*/
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}

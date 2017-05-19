@@ -98,12 +98,6 @@
     border-radius: 5px;
     cursor: pointer;
     float: right;
-    /*禁用双击选择文字 要不然这验证码就没用了*/
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-
 }
 
 #warnings{

@@ -12,7 +12,7 @@
             <th>姓名</th>
             <td>{{ user.name }}</td>
             <th>性别</th>
-            <td>{{ user.sex | sex_translate }}</td>
+            <td>{{ user.sex }}</td>
             <th>身份</th>
             <td>{{ status_post }}</td>
             <th>用户名</th>
@@ -23,10 +23,8 @@
 
     <table class="user_info_content_table" cellspacing="0">
         <tr>
-            <th>其他</th>
-            <td class="can_modify">其他内容</td>
-            <th>其他</th>
-            <td class="can_modify">其他内容</td>
+            <th>手机号</th>
+            <td class="can_modify">{{ user.phone_number }}</td>
             <th>其他</th>
             <td class="can_modify">其他内容</td>
         </tr>
