@@ -20,7 +20,7 @@ $(document).ready(function () {
         'A','B','C','D','E','F','G','H','I','J','K','L','M',
         'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-    //生成验证码
+    // 验证码生成函数
     function init_captcha() {
         captcha_generate = '';
         for(var i = 0; i < 4; i++){
@@ -30,19 +30,20 @@ $(document).ready(function () {
         //显示验证码
         captcha_img.text(captcha_generate);
     }
+    // 生成验证码
     init_captcha();
 
-    //点击验证码切换
+    // 点击验证码切换
     captcha_img.click(function () {
-        //清空验证码输入框
-        //延迟0.3秒
+        // 清空验证码输入框
+        // 延迟0.3秒
         setTimeout(function () {
             captcha.val('').focus();
             init_captcha();
         },300);
     });
 
-    //输完验证码按回车 模拟点击登录按钮
+    // 输完验证码按回车 模拟点击登录按钮
     captcha.bind('keydown',function (event) {
        if(event.keyCode == '13'){
            $('#login').trigger('click');
@@ -50,7 +51,7 @@ $(document).ready(function () {
     });
     
 
-    //点击登录
+    // 点击登录
     $('#login').click(function () {
 
         // 测试开关
