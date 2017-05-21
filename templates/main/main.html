@@ -20,18 +20,21 @@
 
 <div class="content">
     <div class="content_left">
+        <!--标题-->
         {% block content_left %}
 
         {% endblock %}
-
-        {% for t in src %}
-
-        {% endfor %}
     </div>
 
     <div class="content_right">
+        <div class="message_area">
+            <div id="message">保存成功</div>
+        </div>
+
         <!--这里根据点击不同标题展现不同内容-->
-        {% block content_right %}{% endblock %}
+        {% block content_right %}
+
+        {% endblock %}
     </div>
 </div>
 

@@ -12,13 +12,13 @@ from wsgiref.util import FileWrapper
 # TODO:
 
 
-
-
 def download(request):
+    request.encoding = 'utf-8'
+
     from project.utilities.check_indentity import check_identity
     check_return = check_identity(request)
     if check_return == False:
-        return # 返回错误信息
+        return False  # 返回错误信息
     else:
         user = check_return
 
@@ -47,14 +47,14 @@ def user_info_to_excel(request, user):
     style.font = font
 
     # 写入数据
-    worksheet.write(2, 0, user.username, style)
+    worksheet.write(2, 0, user.id, style)
     worksheet.write(2, 1, user.name, style)
     worksheet.write(2, 2, user.sex, style)
     worksheet.write(2, 3, user.status, style)
     worksheet.write(2, 4, user.phone_number, style)
 
     # 保存
-    filename = os.path.join(MEDIA_PATH, 'excel', 'user_info', user.username + '.xls')
+    filename = os.path.join(MEDIA_PATH, 'excel', 'user_info', user.id + '.xls')
     workbook.save(filename)
     # 封装
     wrapper = FileWrapper(file(filename))
@@ -62,5 +62,5 @@ def user_info_to_excel(request, user):
     # 配置reponse 返回文件
     response = HttpResponse(wrapper)
     response['Content-Type'] = 'text/octet-stream'
-    response['Content-Disposition'] = 'attachment; filename="%s.xls"' % user.username
+    response['Content-Disposition'] = 'attachment; filename="%s.xls"' % user.id
     return response

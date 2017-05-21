@@ -4,31 +4,24 @@
     height: 100%;
 }
 
-.user_info_content_title{
-    width: 900px;
-    margin: 20px auto 0;
-    font-size: 28px;
-    text-align: center;
-}
-
 .user_info_content_table{
     width: 900px;
     margin: 20px auto 0;
 }
 
 .user_info_content_table tr{
+    width: 900px;
     height: 45px;
+    line-height: 45px;
 }
 
 .user_info_content_table th{
-    width: auto;
     font-size: 20px;
     background-color: rgba(255,255,255,0.4);
     cursor: default;
 }
 
 .user_info_content_table td{
-    width: auto;
     font-size: 20px;
     background-color: rgba(255,255,255,0.2);
     text-align: center;
@@ -46,6 +39,17 @@
 .user_info_export_menu:hover{
     background-color: rgba(255,255,255,0.5);
 }
+
+.user_info_modify_menu{
+    display: none;
+}
+
+.user_info_modify_menu:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+
+
+
 
 .modify_area{
     height: 43px;

@@ -123,8 +123,26 @@ body{
     float: right;
 }
 
+#message{
+    width: 200px;
+    height: 35px;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    line-height: 35px;
+    background-color: rgba(255,255,255,0.3);
+    display: none;
+}
+
 .main_interface{
     display: none;
+}
+
+.content_title{
+    width: 900px;
+    margin: 20px auto 0;
+    font-size: 28px;
+    text-align: center;
 }
 
 .content_button{

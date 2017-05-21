@@ -18,19 +18,6 @@ def index(request):
 def login(request):
     request.encoding = 'utf-8'
 
-    # 测试
-    if PROJECT_TEST:
-        class _user:
-            name = u'教师1'
-            sex = u'男'
-            username = '20164730001'
-            phone_number = '18030066873'
-
-        status_post = u'教师'
-        user = _user()
-        return render(request,'main/teacher.html',locals())
-
-
     # 如果表单为POST提交
     if request.POST:
         # 接收表单数据
@@ -40,7 +27,7 @@ def login(request):
 
         # 检查是否存在此用户
         from models import User
-        user_list = User.objects.filter(username=username_post)
+        user_list = User.objects.filter(id=username_post)
         '''
         用filter而不是get的原因：
         当此用户不存在的时候get会报错"DoesNotExist"
@@ -56,6 +43,11 @@ def login(request):
                     check_status = user.status.find(status_post)
                     # 身份正确
                     if check_status != -1:
+                        # 获取账号相关数据
+                        # 课程信息
+                        from models import Course
+                        course_list = Course.objects.filter(lecture=user.id)
+
                         # 生成unique_code
                         from hashlib import md5
                         unique_code_src = username_post + password_post + status_post

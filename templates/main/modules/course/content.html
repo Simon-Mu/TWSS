@@ -1,0 +1,55 @@
+{% load staticfiles %}
+{% load myfilters %}
+<link rel="stylesheet" href={% static "main/modules/course/course.css" %}>
+<script src={% static "main/modules/course/course.js" %}></script>
+
+<div class="course_content main_interface">
+
+    <div class="content_title">课程信息</div>
+
+    <table class="course_content_table" cellspacing="0">
+
+
+
+        <tr>
+            <th>课程ID</th>
+            <th>课程名称</th>
+            <th>总课时</th>
+            <th>学分</th>
+            <th>备注</th>
+            <th> </th>
+        </tr>
+
+        {% for course in course_list %}
+
+            <tr class="course_content_tr">
+            <td>{{ course.id }}</td>
+            <td>{{ course.name }}</td>
+            <td>{{ course.session }}</td>
+            <td>{{ course.credit }}</td>
+            <td>{{ course.major }}</td>
+            <td></td>
+
+        </tr>
+        {% endfor %}
+
+
+{#        <tr>#}
+{#            <td>160218</td>#}
+{#            <td>微积分B</td>#}
+{#            <td>32</td>#}
+{#            <td>生工1班 生工2班</td>#}
+{#            <td>83</td>#}
+{#            <td></td>#}
+{#        </tr>#}
+    </table>
+
+
+    <div class="course_content_add">+</div>
+
+
+    <div class="course_content_buttons">
+        <div class="content_button">导出</div>
+    </div>
+
+</div>

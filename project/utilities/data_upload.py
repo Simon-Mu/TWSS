@@ -9,6 +9,7 @@ from django.shortcuts import render
 
 
 def upload(request):
+    request.encoding = 'utf-8'
     # 校验身份
     from project.utilities.check_indentity import check_identity
     check_return = check_identity(request)
@@ -35,7 +36,6 @@ def upload_user_info(request, user):
     # 保存
     user.save()
     # 返回成功状态
-    return render(request, 'main/utilities/return_ajax_success.html')
-
+    return render(request, 'main/utilities/upload_success.html')
 
 

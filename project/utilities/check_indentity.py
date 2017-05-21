@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 
 def check_identity(request):
+    request.encoding = 'utf-8'
+
     # 接收表单数据
     username_post = request.POST['username']
     status_post = request.POST['status']
@@ -10,7 +12,7 @@ def check_identity(request):
 
     # 校验身份
     from project.models import User
-    user_list = User.objects.filter(username=username_post)
+    user_list = User.objects.filter(id=username_post)
 
     if user_list:
         for user in user_list:
