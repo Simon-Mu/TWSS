@@ -40,17 +40,6 @@
     background-color: rgba(255,255,255,0.5);
 }
 
-.user_info_modify_menu{
-    display: none;
-}
-
-.user_info_modify_menu:hover{
-    background-color: rgba(255,255,255,0.5);
-}
-
-
-
-
 .modify_area{
     height: 43px;
     padding: 0;

@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
-# Create your views here.
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -15,6 +12,9 @@ def index(request):
     return render(request, 'index/index.html', locals())
 
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 def login(request):
     request.encoding = 'utf-8'
 
@@ -26,7 +26,9 @@ def login(request):
         status_post = request.POST['status']
 
         # 检查是否存在此用户
-        from models import User
+        # from models import User
+        from project.models import User
+
         user_list = User.objects.filter(id=username_post)
         '''
         用filter而不是get的原因：
@@ -45,7 +47,7 @@ def login(request):
                     if check_status != -1:
                         # 获取账号相关数据
                         # 课程信息
-                        from models import Course
+                        from project.models import Course
                         course_list = Course.objects.filter(lecture=user.id)
 
                         # 生成unique_code

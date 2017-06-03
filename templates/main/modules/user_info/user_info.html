@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load myfilters %}
 <link rel="stylesheet" href={% static "main/modules/user_info/user_info.css" %}>
 <script src={% static "main/modules/user_info/user_info.js" %}></script>
 
@@ -42,9 +41,7 @@
     </table>
 
     <div class="user_info_content_buttons">
-        <div class="content_button" id="user_info_modify">修改
-            <div class="content_button user_info_modify_menu">取消</div>
-        </div>
+        <div class="content_button" id="user_info_modify">修改</div>
         <div class="content_button" id="user_info_export">导出
             <div class="content_button user_info_export_menu" id="user_info_to_image">为图片</div>
             <div class="content_button user_info_export_menu" id="user_info_to_excel">为Excel</div>

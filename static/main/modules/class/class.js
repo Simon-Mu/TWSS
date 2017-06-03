@@ -1,44 +1,9 @@
 $(document).ready(function () {
 
-    $('#user_info_user_info').click(function () {
-        $('.main_interface').hide();
-        $('.user_info_content').show();
-    });
-
-    $('#user_info_change_password').click(function () {
-        $('.main_interface').hide();
-    });
-
-    // 修改按钮下拉菜单动画
-    var modify_button = $('#user_info_modify');
-    var modify_button_menu = $('.user_info_modify_menu');
-    modify_button.hover(
-        // mouse over
-        function () {
-            modify_button_menu.slideDown('fast');
-        },
-        // mouse leave
-        function () {
-            modify_button_menu.slideUp('fast');
-        }
-    );
-
-    // 导出按钮下拉菜单动画
-    var export_button_menu = $('.user_info_export_menu');
-    $('#user_info_export').hover(
-        // mouse over
-        function () {
-            export_button_menu.slideDown('fast');
-        },
-        // mouse leave
-        function () {
-            export_button_menu.slideUp('fast');
-        }
-    );
-
     // 修改功能
     var modifying = false;
-    var button_user_info_modify_able = true;
+    var modify_button = $('#class_modify');
+    var button_class_modify_able = true;
 
     modify_button.click(function () {
         // 判断修改状态
@@ -63,14 +28,14 @@ $(document).ready(function () {
 
         // 修改状态时为'保存'按钮
         // 判断按钮是否可用
-        if(button_user_info_modify_able === false) {
+        if(button_class_modify_able === false) {
             alert('操作过于频繁，请稍后再试');
             return;
         }
 
         // 判断数据是否合法
         // 获取手机号
-        var phone_number = $('#user_info_phone_number').children();
+        var phone_number = $('#class_phone_number').children();
         if(phone_number.val().length !== 11){
             alert('手机号格式不符合');
             return;
@@ -97,7 +62,7 @@ $(document).ready(function () {
             // 配置目标url
             form.attr('action', '/upload');
             // 配置请求的excel为'user_info'
-            requestfor.val('user_info');
+            requestfor.val('class');
             // 附上数据
             requestdata.val(datas_jsonstr);
             // 提交
@@ -121,22 +86,22 @@ $(document).ready(function () {
             requestdata.val('');
 
             // 禁用该按钮 防止多次点击增加服务器负担
-            button_user_info_modify_able = false;
+            button_class_modify_able = false;
             // 5秒后恢复按钮
             setTimeout(function () {
-                button_user_info_modify_able = true;
+                button_class_modify_able = true;
             }, 5000);
         }
     });
 
 
     // 点击'导出为Excel'后向服务器发送请求及表单
-    var button_user_info_to_excel = $('#user_info_to_excel');
-    var button_user_info_to_excel_able = true;
+    var button_class_to_excel = $('#class_to_excel');
+    var button_class_to_excel_able = true;
 
-    button_user_info_to_excel.click(function () {
+    button_class_to_excel.click(function () {
         // 判断按钮是否可用
-        if(button_user_info_to_excel_able === false) {
+        if(button_class_to_excel_able === false) {
             alert('操作过于频繁，请稍后再试');
             return;
         }
@@ -146,7 +111,7 @@ $(document).ready(function () {
         // 配置目标url
         form.attr('action', '/download');
         // 配置请求的excel为'user_info'
-        requestfor.val('user_info');
+        requestfor.val('class');
         // 提交
         form.submit();
 
@@ -155,11 +120,37 @@ $(document).ready(function () {
         requestfor.val('');
 
         // 禁用该按钮 防止多次点击增加服务器负担
-        button_user_info_to_excel_able = false;
+        button_class_to_excel_able = false;
         // 5秒后恢复按钮
         setTimeout(function () {
-            button_user_info_to_excel_able = true;
+            button_class_to_excel_able = true;
         }, 5000);
     });
+
+    // 修改按钮下拉菜单动画
+    var modify_button_menu = $('.class_modify_menu');
+    modify_button.hover(
+        // mouse over
+        function () {
+            modify_button_menu.slideDown('fast');
+        },
+        // mouse leave
+        function () {
+            modify_button_menu.slideUp('fast');
+        }
+    );
+
+    // 导出按钮下拉菜单动画
+    var export_button_menu = $('.class_export_menu');
+    $('#class_export').hover(
+        // mouse over
+        function () {
+            export_button_menu.slideDown('fast');
+        },
+        // mouse leave
+        function () {
+            export_button_menu.slideUp('fast');
+        }
+    );
 
 });

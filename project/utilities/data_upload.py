@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__name__))

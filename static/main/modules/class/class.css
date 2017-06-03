@@ -1,43 +1,43 @@
-.course_content{
+.class_content{
     width: 950px;
     min-height: 600px;
     height: 100%;
 }
 
-.course_content_table{
+.class_content_table{
     width: 900px;
     margin: 20px auto 0;
 }
 
-.course_content_table tr{
+.class_content_table tr{
     width: 900px;
     height: 50px;
     line-height: 50px;
 }
 
-.course_content_table th{
+.class_content_table th{
     min-width: 100px;
     font-size: 20px;
     background-color: rgba(255,255,255,0.4);
     cursor: default;
 }
 
-.course_content_table td{
-    font-size: 18px;
+.class_content_table td{
+    font-size: 20px;
     background-color: rgba(255,255,255,0.2);
     text-align: center;
 }
 
-.course_content_table_even{
+.class_content_table_even{
     background-color: rgba(255,255,255,0.15);
 }
 
-.course_content_tr img{
-    width: 20px;
-    height: 20px;
+.class_content_tr:hover{
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
 }
 
-.course_content_add{
+.class_content_add{
     height: 50px;
     width: 900px;
     margin: 0 auto;
@@ -48,13 +48,11 @@
     cursor: pointer;
 }
 
-.course_content_add:hover{
+.class_content_add:hover{
     background-color: rgba(255,255,255,0.5);
 }
 
-
-
-.course_content_buttons{
+.class_content_buttons{
     width: 150px;
     margin: 50px auto 20px;
 }

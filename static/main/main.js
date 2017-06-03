@@ -31,10 +31,10 @@ $(document).ready(function () {
         }
 
         // 隐藏其他模块的主界面 显示本模块的主界面
-        $('.main_interface').hide();
-        var title_name = $(this).attr('id');
-        var content_name = title_name.replace('_title','_content');
-        $('.'+content_name).show();
+        // $('.main_interface').hide();
+        // var title_name = $(this).attr('id');
+        // var content_name = title_name.replace('_title','_content');
+        // $('.'+content_name).show();
     });
 
 });
