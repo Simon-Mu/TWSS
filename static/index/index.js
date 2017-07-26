@@ -56,9 +56,8 @@ $(document).ready(function () {
 
         // 测试开关
         // 跳过验证码
-        var PROJECT_TEST = false;
+        var PROJECT_TEST = true;
         if(PROJECT_TEST){
-            password.val(hex_md5(password.val()));
             $('#login_form').submit();
         }
 

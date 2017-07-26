@@ -5,18 +5,16 @@ from django.http import HttpResponse
 
 
 # 测试开关
-PROJECT_TEST = False
+PROJECT_TEST = True
 
 
 def index(request):
     return render(request, 'index/index.html', locals())
 
 
-import pymysql
-pymysql.install_as_MySQLdb()
-
 def login(request):
     request.encoding = 'utf-8'
+
 
     # 如果表单为POST提交
     if request.POST:
@@ -24,6 +22,19 @@ def login(request):
         username_post = request.POST['username']
         password_post = request.POST['password']
         status_post = request.POST['status']
+
+        if PROJECT_TEST == True:
+            if status_post == u'教师':
+                return render(request, 'main/teacher/teacher.html', locals())
+            if status_post == u'系主任':
+                return render(request, 'main/head_of_department/head_of_department.html', locals())
+            if status_post == u'教务员':
+                return render(request, 'main/dean/dean.html', locals())
+            if status_post == u'系统管理员':
+                return render(request, 'main/admin/admin.html', locals())
+
+
+
 
         # 检查是否存在此用户
         # from models import User
@@ -57,13 +68,13 @@ def login(request):
                         unique_code = generater.hexdigest()
                         # 返回相应页面
                         if status_post == u'教师':
-                            return render(request, 'main/teacher.html', locals())
+                            return render(request, 'main/teacher/teacher.html', locals())
                         if status_post == u'系负责人':
-                            return render(request, 'main/dean.html', locals())
+                            return render(request, 'main/dean/dean.html', locals())
                         if status_post == u'教务员':
-                            return render(request, 'main/admin.html', locals())
+                            return render(request, 'main/admin/admin.html', locals())
                         if status_post == u'系统管理员':
-                            return render(request, 'main/admin.html', locals())
+                            return render(request, 'main/admin/admin.html', locals())
                     # 身份错误
                     else:
                         return render(request, 'index/loginfailed.html')

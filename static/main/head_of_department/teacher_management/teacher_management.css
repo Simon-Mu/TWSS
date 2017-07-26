@@ -1,0 +1,21 @@
+.teacher_management_table {
+    width: 980px;
+    margin: 30px auto;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.teacher_management_table th {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.teacher_management_table td {
+    width: 600px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.teacher_management_table_even {
+    background: rgba(255, 255, 255, 0.18);
+}
