@@ -41,9 +41,6 @@ class User(models.Model):
     department = models.ForeignKey(Department, related_name='department', default=0)
     # 密码 md5加密后的字符串
     password = models.CharField(max_length=32, default=u'未记录')
-    # 性别
-    SEX_CHOICES = ('男', '女', '未记录')
-    sex = models.CharField(max_length=3, default=u'未记录')
     # 手机号
     phone_number = models.CharField(max_length=11, default=u'未记录')
     # 邮箱
@@ -65,10 +62,8 @@ class Course(models.Model):
     id = models.CharField(max_length=16, primary_key=True)
     # 课程名称
     name = models.CharField(max_length=32, default=u'未记录')
-    # 课时数
+    # 学时
     session = models.IntegerField(128, default=0)
-    # 授课老师
-    lecture = models.ForeignKey(User, related_name='lecture')
     # 是否主修
     MAJOR_CHOICES = ('主修', '代课')
     major = models.CharField(max_length=16, default=u'未记录')
@@ -81,4 +76,29 @@ class Course(models.Model):
 
     def __unicode__(self):
         return self.id + ' ' + self.name
+    
+ class Class(models.Model):
+    # 班级编号
+    id = models.IntegerField(max_length=16, primary_key=True, default=0)
+    # 班级名称
+    name = models.CharField(max_length=16, default=u'未记录')
+    #年级
+    grade = models.IntegerField()
+    # 学生总数
+    student_sun = models.IntegerField()
+  
 
+    class Meta:
+        # 数据表名
+        db_table = 'Class'
+
+    def __unicode__(self):
+        return str(self.id) + ' ' + self.name
+
+#理论课工作总表
+class Theory(models.Model):
+    # 教师编号（是用户信息表的外键 这个编号指的什么编号？如果是教师编号那么一个教师有多条记录该怎么办  这个数据存储可以重复吗）
+    id = models.ForeignKey(User, related_name='user', default=0)
+    # 教师姓名
+    name = models.ForeignKey(User, related_name='user', default=0)
+  
